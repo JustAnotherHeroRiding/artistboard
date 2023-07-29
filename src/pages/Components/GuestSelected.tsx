@@ -1,11 +1,13 @@
 import Bricks from "./Bricks";
+import { type HomePageSelectProps } from "./SelectArtistOrGuest";
 import VisitorNavBar from "./VisitorNavbar";
 import Image from "next/image";
 
-export default function GuestSelected() {
+export default function GuestSelected({ setUrl }: HomePageSelectProps) {
+ 
   return (
     <div>
-      <VisitorNavBar />
+      <VisitorNavBar setUrl={setUrl} />
       <div className="relative mb-8 flex flex-row items-center justify-between">
         <p className="z-10 ml-4 mt-8 w-36 text-2xl font-bold text-brainster-200">
           Looking for a masterpiece?
@@ -64,7 +66,7 @@ export default function GuestSelected() {
             />
           </div>
         </div>
-      </div> 
       </div>
+    </div>
   );
 }

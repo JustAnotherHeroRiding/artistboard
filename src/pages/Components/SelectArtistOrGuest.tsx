@@ -2,7 +2,7 @@ import { type Dispatch, useState, type SetStateAction } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-interface HomePageSelectProps {
+export interface HomePageSelectProps {
     setUrl: Dispatch<SetStateAction<string>>;
   }
   
@@ -38,10 +38,6 @@ interface HomePageSelectProps {
         <div className="relative">
           <div
             className="group"
-            onClick={ () => {
-               void handleClick();
-               setUrl('/#hash')
-            }}
           >
             <h2 className="absolute right-1/2 top-16 z-50 w-52 translate-x-1/2 px-4 text-4xl text-brainster-200">
               Join as Artist
@@ -80,7 +76,11 @@ interface HomePageSelectProps {
               <path d="M0 116L260 276.5V0H0V116Z" fill="#EDD5BB" />
             </svg>
           </div>
-          <div className="group">
+          <div className="group"
+           onClick={ () => {
+            void handleClick();
+            setUrl('/#hash')
+         }}>
             <h2 className="absolute right-1/2 top-60 z-50 w-52 translate-x-1/2 px-4 text-4xl text-white">
               Join as Visitor
             </h2>

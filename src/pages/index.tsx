@@ -1,13 +1,18 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import HomePageSelect from "./Components/SelectArtistOrGuest";
 import GuestSelected from "./Components/GuestSelected";
 
 export default function Home() {
   const router = useRouter();
-  const [url, setUrl] = useState(router.asPath)
+  const [url, setUrl] = useState("/");
 
+  useEffect(() => {
+    if (router.asPath === "/#hash") {
+      setUrl("/#hash");
+    }
+  }, [router.asPath]);
 
   return (
     <>
@@ -16,15 +21,10 @@ export default function Home() {
         <meta name="description" content="Brainster" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-      {url === '/' && (
-       <HomePageSelect setUrl={setUrl} />
-      )}
-      {url === '/#hash' && (
-        <GuestSelected />
-      )}
-      </main>
-      </>
-    
+      <div>
+        {url === "/" && <HomePageSelect setUrl={setUrl} />}
+        {url === "/#hash" && <GuestSelected setUrl={setUrl} />}
+      </div>
+    </>
   );
 }
