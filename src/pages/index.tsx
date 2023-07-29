@@ -16,13 +16,15 @@ export default function Home() {
         <meta name="description" content="Brainster" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {url === '/' && url.length == 1 && (
+      <main>
+      {url === '/' && (
        <HomePageSelect setUrl={setUrl} />
       )}
       {url === '/#hash' && (
         <GuestSelected />
       )}
-      
-    </>
+      </main>
+      </>
+    
   );
 }

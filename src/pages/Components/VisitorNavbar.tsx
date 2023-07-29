@@ -5,10 +5,11 @@ import Image from "next/image";
 export default function VisitorNavBar() {
 
   return (
-        <>
         <div className="py-4 relative">
-        <div className=" shadow-figma flex flex-row justify-between">
+        <div className="shadow-figma flex flex-row justify-between">
         <Image
+          key={typeof window === "undefined" ? "" : "client"}
+
           src="/Logo.png"
           className="flex-shrink-0 p-4 -left-4 absolute -bottom-8"
           alt="Logo"
@@ -27,6 +28,5 @@ export default function VisitorNavBar() {
         />
         </div>
       </div>
-      </>
   );
 }

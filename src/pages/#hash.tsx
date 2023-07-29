@@ -1,6 +1,6 @@
-import Bricks from "./Bricks";
-import VisitorNavBar from "./VisitorNavbar";
 import Image from "next/image";
+import VisitorNavBar from "./Components/VisitorNavbar";
+import Bricks from "./Components/Bricks";
 
 export default function GuestSelected() {
   return (
@@ -17,7 +17,7 @@ export default function GuestSelected() {
       </div>
       <div className="w-full bg-brainster-300">
         <div className="relative m-auto h-[200px] w-auto overflow-hidden">
-          <div className="flex w-[calc(250px*6)] animate-scroll gap-6">
+          <div className="flex w-[calc(250px*6)] animate-scroll">
             <Image
               className="h-[153px] w-[250px] "
               src="/image1GuestView.jpg"
